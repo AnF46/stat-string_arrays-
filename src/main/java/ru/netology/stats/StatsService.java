@@ -2,7 +2,7 @@ package ru.netology.stats;
 
 public class StatsService {
 
-    public long getTotalSales(long[] sales) {
+    public long TotalSales(long[] sales) {
         long totalSales = 0;
 
         for (long sum : sales) {
@@ -11,12 +11,12 @@ public class StatsService {
         return totalSales;
     }
 
-    public long getAverageSaleForMonth(long[] sales) {
-        long averageSalesForMonth = getTotalSales(sales) / sales.length;
+    public long monthAverageSale(long[] sales) {
+        long averageSalesForMonth = TotalSales(sales) / sales.length;
         return averageSalesForMonth;
     }
 
-    public int getBestSalesMonth(long[] sales) {
+    public int BestSalesMonth(long[] sales) {
         int bestSalesMonth = 0;
         for (int i = 0; i < sales.length; i++) {
             if (sales[i] > sales[bestSalesMonth]) {
@@ -27,7 +27,7 @@ public class StatsService {
         return bestSalesMonth;
     }
 
-    public int getWorstSalesMonth(long[] sales) {
+    public int minSalesMonth(long[] sales) {
         int worstSalesMonth = 0;
         for (int i = 0; i < sales.length; i++) {
             if (sales[i] < sales[worstSalesMonth])
@@ -36,9 +36,9 @@ public class StatsService {
         return worstSalesMonth + 1;
     }
 
-    public int getMonthsBelowAverage(long[] sales) {
+    public int salesBelowAverage(long[] sales) {
         int worstMonths = 0;
-        long averageSales = getAverageSaleForMonth(sales);
+        long averageSales = monthAverageSale(sales);
         for (long i : sales) {
             if (i < averageSales) {
                 worstMonths++;
@@ -47,11 +47,11 @@ public class StatsService {
         return worstMonths;
     }
 
-    public int getMonthsHigherAverage(long[] sales) {
+    public int salesHigherAverage(long[] sales) {
         int monthsHigherAverage = 0;
-        long averagesales = getAverageSaleForMonth(sales);
+        long averageSales = monthAverageSale(sales);
         for (long x : sales) {
-            if (x < averagesales) {
+            if (x > averageSales) {
                 monthsHigherAverage++;
             }
         }

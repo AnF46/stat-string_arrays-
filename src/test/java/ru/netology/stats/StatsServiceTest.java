@@ -6,72 +6,72 @@ import org.junit.jupiter.api.Test;
 public class StatsServiceTest {
 
     @Test
-    public void shouldFindTotalSales() {
+    public void testTotalSales() {
         StatsService service = new StatsService();
 
         long[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
 
-        long expectedSum = 180;
-        long actualSum = service.getTotalSales(sales);
+        long expected = 180;
+        long actual = service.TotalSales(sales);
 
-        Assertions.assertEquals(expectedSum, actualSum);
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
-    public void shouldFindAverageSalesForMonth() {
+    public void testMonthAverageSales() {
         StatsService service = new StatsService();
 
         long[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
 
-        long expectedAverageSalesForMonth = 15;
-        long actualAverageSalesForMonth = service.getAverageSaleForMonth(sales);
+        long expected = 15;
+        long actual = service.monthAverageSale(sales);
 
-        Assertions.assertEquals(expectedAverageSalesForMonth, actualAverageSalesForMonth);
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
-    public void shouldFindBestSalesMonth() {
+    public void testBestSalesMonth() {
         StatsService service = new StatsService();
 
         long[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
 
-        long expectedBestSalesMonth = 8;
-        long actualBestSalesMonth = service.getBestSalesMonth(sales);
+        long expected = 8;
+        long actual = service.BestSalesMonth(sales);
 
-        Assertions.assertEquals(expectedBestSalesMonth, actualBestSalesMonth);
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
-    public void shouldFindWorstSalesMonth() {
+    public void testMinSalesMonth() {
         StatsService service = new StatsService();
 
         long[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
 
-        int expectedWorstSalesMonth = 9;
-        int actualWorstSalesMonth = service.getWorstSalesMonth(sales);
+        int expected = 9;
+        int actual = service.minSalesMonth(sales);
 
-        Assertions.assertEquals(expectedWorstSalesMonth, actualWorstSalesMonth);
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
-    public void findMonthsBelowAverage() {
+    public void testMonthsBelowAverage() {
         StatsService service = new StatsService();
 
         long[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
 
         int expexted = 5;
-        int actual = service.getMonthsBelowAverage(sales);
+        int actual = service.salesBelowAverage(sales);
 
         Assertions.assertEquals(expexted, actual);
     }
 
     @Test
-    public void findMonthsHigherAverage() {
+    public void testHigherAverage() {
         StatsService service = new StatsService();
         long[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
 
         int expected = 5;
-        int actual = service.getMonthsHigherAverage(sales);
+        int actual = service.salesHigherAverage(sales);
 
         Assertions.assertEquals(expected, actual);
     }

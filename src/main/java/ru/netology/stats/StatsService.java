@@ -50,8 +50,8 @@ public class StatsService {
     public int salesHigherAverage(long[] sales) {
         int monthsHigherAverage = 0;
         long averageSales = monthAverageSale(sales);
-        for (long x : sales) {
-            if (x > averageSales) {
+        for (long i : sales) {
+            if (i > averageSales) {
                 monthsHigherAverage++;
             }
         }
